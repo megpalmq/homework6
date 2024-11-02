@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 16px;
+}
+header {
+  background-color: rgb(235, 192, 255);
+  color: white;
+  padding: 0.5rem 0;
+}
+#app {
+  padding: 30px;
+  display: flex;
+  height: calc(100% - 100px);
+  align-items: center;
+  justify-content: center;
+}

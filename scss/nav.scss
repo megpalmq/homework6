@@ -1,0 +1,96 @@
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.nav-container .logo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.logo {
+  background-image: url(../assests/images/logo.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 169px;
+  height: 55px;
+  margin-top: 38px;
+}
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav {
+  display: flex;
+  flex-grow: 1;
+}
+
+.nav--ul__one {
+  margin: 0 auto;
+}
+
+.nav-container,
+.nav--ul__one,
+.nav--ul__two {
+  display: flex;
+  gap: 1.6rem;
+  font-size: 1.2rem;
+}
+
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+}
+@media (max-width: 700px) {
+  .nav-container .logo {
+    font-size: 1.2rem;
+    z-index: 2;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .nav--ul__one,
+  .nav--ul__two {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .hamburger-menu {
+    display: block;
+    z-index: 2;
+  }
+
+  .nav {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    bottom: 0;
+    width: 100%;
+
+    padding-top: 6rem;
+    align-items: center;
+    text-align: center;
+    background-color: pink;
+    color: white;
+    transition: 0.3s ease-in-out;
+  }
+  .nav-link :hover {
+    color: rgb(88, 59, 135);
+    font-size: 1.5rem;
+    transition: 0.2s ease-in;
+  }
+  .nav.active {
+    right: 0;
+  }
+}
