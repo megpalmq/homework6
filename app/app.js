@@ -1,25 +1,23 @@
-const hamburgerMenu = document.querySelector(".hamburger-menu");
-//const hamburgerMenu= $(".hamburgerMenu")
-const nav = document.querySelector(".nav");
-
-hamburgerMenu.addEventListener("click", ()=>{
-    nav.classList.toggle("active");
-})
-
+import { changeRoute } from "../model/model.js";
 
 function initListeners() {
-    $("nav a").on("click", function(e){
-        let id= e.currentTarget.id;
-        console.log(id);
-        $("#app").html(id)
-        nav.classList.toggle("active");
+    $(document).on("click", "nav a", function(e) {
+        e.preventDefault();
+        let btnID = e.currentTarget.id;
+        changeRoute(btnID);
     });
-
-    $(".nav").on("click", function(e){
-        nav.classList.remove("active");
-    })
 }
- 
-$(document).ready(function () {
-initListeners();
+
+function initURLListener() {
+    $(window).on("hashchange", function(e) {
+        let pageID = window.location.hash.replace("#", "");
+        changeRoute(pageID);
+    });
+}
+
+$(document).ready(function() {
+    initListeners();
+    initURLListener();
+
+    changeRoute('login');
 });

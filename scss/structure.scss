@@ -16,15 +16,40 @@ h6,
 p {
   margin-bottom: 16px;
 }
+
 header {
   background-color: rgb(235, 192, 255);
   color: white;
   padding: 0.5rem 0;
 }
-#app {
-  padding: 30px;
+body {
   display: flex;
-  height: calc(100% - 100px);
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  flex-shrink: none;
+  flex-direction: column;
+  nav,
+  footer,
+  #app {
+    flex-shrink: 0;
+  }
+}
+#app {
+  flex: 1;
+}
+
+@font-face {
+  font-family: cavReg;
+  src: url(../assests/fonts/Caveat-Regular.ttf);
+}
+@font-face {
+  font-family: latoReg;
+  src: url(../assests/fonts/Lato-Regular.ttf);
+}
+@font-face {
+  font-family: latoI;
+  src: url(../assests/fonts/Lato-Italic.ttf);
+}
+@font-face {
+  font-family: latoBL;
+  src: url(../assests/fonts/Lato-BlackItalic.ttf);
 }

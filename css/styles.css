@@ -25,25 +25,45 @@ header {
   padding: 0.5rem 0;
 }
 
-#app {
-  padding: 30px;
+body {
   display: flex;
-  height: calc(100% - 100px);
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  flex-shrink: none;
+  flex-direction: column;
+}
+body nav,
+body footer,
+body #app {
+  flex-shrink: 0;
 }
 
+#app {
+  flex: 1;
+}
+
+@font-face {
+  font-family: cavReg;
+  src: url(../assests/fonts/Caveat-Regular.ttf);
+}
+@font-face {
+  font-family: latoReg;
+  src: url(../assests/fonts/Lato-Regular.ttf);
+}
+@font-face {
+  font-family: latoI;
+  src: url(../assests/fonts/Lato-Italic.ttf);
+}
+@font-face {
+  font-family: latoBL;
+  src: url(../assests/fonts/Lato-BlackItalic.ttf);
+}
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 90%;
   margin: 0 auto;
-}
-
-.nav-container .logo {
-  font-size: 2rem;
-  font-weight: bold;
+  padding: 20px 0;
 }
 
 .logo {
@@ -53,33 +73,45 @@ header {
   background-size: cover;
   width: 169px;
   height: 55px;
-  margin-top: 38px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav--ul__one {
+  display: flex;
+  gap: 1.6rem;
+  margin-right: 20px;
+}
+
+.nav--ul__two {
+  display: flex;
+  gap: 1.6rem;
 }
 
 ul {
   list-style: none;
 }
 
-a {
+nav a {
+  font-family: cavReg;
+  font-size: 25px;
+  padding: 41px;
+  position: relative;
   text-decoration: none;
   color: inherit;
 }
-
-.nav {
-  display: flex;
-  flex-grow: 1;
-}
-
-.nav--ul__one {
-  margin: 0 auto;
-}
-
-.nav-container,
-.nav--ul__one,
-.nav--ul__two {
-  display: flex;
-  gap: 1.6rem;
-  font-size: 1.2rem;
+nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  color: black;
 }
 
 .hamburger-menu {
@@ -87,7 +119,27 @@ a {
   cursor: pointer;
 }
 
-@media (max-width: 700px) {
+.loginBtn {
+  background-color: #ffd972;
+  border: none;
+  border-radius: 50px;
+  width: 158px;
+  height: 52px;
+  box-shadow: -2px 10px 6px rgba(112, 112, 112, 0.3);
+}
+.loginBtn:hover {
+  background-color: #fcbcb8;
+}
+
+nav a:hover {
+  font-size: 30px;
+  transition: 0.25s ease-in;
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    flex-wrap: wrap;
+  }
   .nav-container .logo {
     font-size: 1.2rem;
     z-index: 2;
@@ -118,25 +170,124 @@ a {
     color: white;
     transition: 0.3s ease-in-out;
   }
-  .nav-link :hover {
-    color: rgb(88, 59, 135);
-    font-size: 1.5rem;
-    transition: 0.2s ease-in;
-  }
   .nav.active {
     right: 0;
   }
 }
-.circle-container {
+.footer {
+  width: 100%;
+  bottom: 0;
+  padding-top: 100px;
+}
+.footer .footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  padding: 80px 0;
+}
+@media (max-width: 768px) {
+  .footer .footer-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+.footer .footer-copyright {
+  font-family: "LatoI", sans-serif;
+  color: #393939;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .footer .footer-copyright {
+    text-align: center;
+  }
+}
+.footer .footer-links {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.footer .footer-links ul {
+  display: flex;
+  gap: 1.6rem;
+  list-style: none;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .footer .footer-links ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+}
+.footer .footer-links a {
+  color: #393939;
+  font-family: "LatoI", sans-serif;
+  font-size: 15px;
+  text-decoration: none;
+}
+.footer .footer-links a:hover {
+  font-size: 18px;
+  transition: font-size 0.25s ease-in;
+}
+.footer .footer-social {
+  display: flex;
+  gap: 1rem;
+}
+.footer .footer-social .social-icon {
+  font-size: 19px;
+  margin-left: 41px;
+  color: #393939;
+}
+@media (max-width: 768px) {
+  .footer .footer-social {
+    justify-content: center;
+  }
+}
+
+.hero {
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: saturate(1.2);
+  position: relative;
+}
+.hero.hero1 {
+  background: linear-gradient(rgba(242, 92, 84, 0.6), rgba(242, 92, 84, 0.6)), url(../assests/images/hero.jpg);
+}
+.hero.hero2 {
+  background-color: #ffd972;
+}
+
+.hero1 {
+  background: linear-gradient(rgba(242, 92, 84, 0.6), rgba(242, 92, 84, 0.6)), url(../assests/images/hero.jpg);
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: saturate(1.2);
+  position: relative;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+}
+.home .circle-container {
   width: 357px;
   height: 357px;
   position: relative;
 }
-
-.small-circle {
+.home .small-circle {
   width: 168px;
   height: 168px;
-  background-color: pink;
+  background-color: rgb(252, 188, 184);
   position: absolute;
   border-radius: 50%;
   right: -60px;
@@ -147,14 +298,19 @@ a {
   justify-content: center;
   font-size: 10px;
   padding: 10px;
-  text-align: center;
-  box-shadow: -2px 10px 6px #707070;
+  box-shadow: -2px 10px 6px rgba(0, 0, 0, 0.16);
 }
-
-.yellow-circle {
+.home .small-circle p {
+  font-family: latoI;
+  color: #707070;
+  width: 96.76px;
+  font-size: 10px;
+  text-align: center;
+}
+.home .yellow-circle {
   width: 357px;
   height: 357px;
-  background-color: rgb(244, 235, 115);
+  background-color: #ffd972;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -162,5 +318,151 @@ a {
   font-size: 10px;
   padding: 20px;
   text-align: center;
-  box-shadow: -2px 10px 6px rgb(112, 112, 112);
+  box-shadow: -2px 10px 6px rgba(0, 0, 0, 0.16);
+  flex-direction: column;
+}
+.home .yellow-circle h3 {
+  font-family: cavReg;
+  font-size: 24px;
+  letter-spacing: 3px;
+}
+.home .yellow-circle p {
+  font-family: latoReg;
+  font-size: 13px;
+  width: 166px;
+  margin-top: 5px;
+  line-height: 18px;
+  word-spacing: 1px;
+}
+
+.hero2 {
+  background-color: #ffd972;
+  min-height: 80vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: saturate(1.2);
+  position: relative;
+}
+.hero2 .login-signUp {
+  display: flex;
+  align-items: center;
+  height: 60vh;
+}
+.hero2 .login-signUp .login-container {
+  padding: 2rem;
+  margin-top: 188px;
+  margin-left: 276px;
+  margin-right: auto;
+  width: 300px;
+}
+.hero2 .login-signUp .login-container .login-form {
+  display: flex;
+  flex-direction: column;
+}
+.hero2 .login-signUp .login-container .login-form h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-family: latoReg;
+  font-weight: 100;
+  letter-spacing: 3px;
+  font-size: 30px;
+}
+.hero2 .login-signUp .login-container .login-form input {
+  font-family: latoReg;
+  font-size: 10px;
+  margin-bottom: 1rem;
+  border: none;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  background-color: #ffd972;
+  font-size: 16px;
+  width: 250px;
+  outline: none;
+  border-bottom: 2px solid black;
+  margin-top: 60px;
+}
+.hero2 .login-signUp .login-container .login-form input:focus {
+  border-bottom: 2px solid #000;
+}
+.hero2 .login-signUp .login-container .login-form button {
+  background-color: #ffd972;
+  border: none;
+  border-radius: 50px;
+  width: 209px;
+  height: 52px;
+  box-shadow: -2px 10px 6px rgba(112, 112, 112, 0.3);
+  font-family: cavReg;
+  font-size: 25px;
+  margin-top: 52.5px;
+}
+.hero2 .login-signUp .login-container .login-form button:hover {
+  background-color: #fcbcb8;
+}
+.hero2 .login-signUp .login-container .login-form p {
+  margin-top: 1rem;
+  text-align: center;
+}
+.hero2 .login-signUp .signUp-container {
+  padding: 2rem;
+  margin-top: 188px;
+  margin-right: 400px;
+  width: 320px;
+}
+.hero2 .login-signUp .signUp-container .signUp-form {
+  display: flex;
+  flex-direction: column;
+}
+.hero2 .login-signUp .signUp-container .signUp-form p {
+  font-family: latoI;
+  font-size: 12px;
+  margin-right: 115px;
+  word-spacing: 1.5px;
+  letter-spacing: 1px;
+}
+.hero2 .login-signUp .signUp-container .signUp-form h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-family: latoReg;
+  font-weight: 100;
+  letter-spacing: 3px;
+  font-size: 30px;
+  margin-right: 100px;
+  position: absolute;
+  margin-top: 35px;
+}
+.hero2 .login-signUp .signUp-container .signUp-form input {
+  font-family: latoReg;
+  font-size: 16px;
+  margin-bottom: 1rem;
+  border: none;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  background-color: #ffd972;
+  width: 250px;
+  outline: none;
+  border-bottom: 2px solid black;
+  margin-top: 60px;
+}
+.hero2 .login-signUp .signUp-container .signUp-form input:focus::placeholder {
+  border-bottom: 2px solid #000;
+  color: black;
+}
+.hero2 .login-signUp .signUp-container .signUp-form button {
+  background-color: #ffd972;
+  border: none;
+  border-radius: 50px;
+  width: 209px;
+  height: 52px;
+  box-shadow: -2px 10px 6px rgba(112, 112, 112, 0.3);
+  font-family: cavReg;
+  font-size: 25px;
+  margin-top: 52.5px;
+}
+.hero2 .login-signUp .signUp-container .signUp-form button:hover {
+  background-color: #fcbcb8;
+}
+.hero2 .footer {
+  padding-top: 150px;
 }

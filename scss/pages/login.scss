@@ -1,0 +1,148 @@
+.hero2 {
+  background-color: #ffd972;
+  min-height: 80vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: saturate(1.2);
+  position: relative;
+
+  .login-signUp {
+    display: flex;
+    align-items: center;
+    height: 60vh;
+    // gap: 100px;
+    .login-container {
+      padding: 2rem;
+      margin-top: 188px;
+      margin-left: 276px;
+      margin-right: auto;
+
+      width: 300px;
+
+      .login-form {
+        display: flex;
+        flex-direction: column;
+        h2 {
+          margin-bottom: 1.5rem;
+          text-align: center;
+          font-family: latoReg;
+          font-weight: 100;
+          letter-spacing: 3px;
+          font-size: 30px;
+        }
+
+        input {
+          font-family: latoReg;
+          font-size: 10px;
+          margin-bottom: 1rem;
+          border: none;
+          letter-spacing: 1px;
+          word-spacing: 1px;
+          background-color: $yellow;
+          font-size: 16px;
+          width: 250px;
+          outline: none;
+          border-bottom: 2px solid black;
+          margin-top: 60px;
+
+          &:focus {
+            border-bottom: 2px solid #000;
+          }
+        }
+
+        button {
+          background-color: $yellow;
+          border: none;
+          border-radius: 50px;
+          width: 209px;
+          height: 52px;
+          box-shadow: -2px 10px 6px rgb(112, 112, 112, 0.3);
+          font-family: cavReg;
+          font-size: 25px;
+          margin-top: 52.5px;
+
+          &:hover {
+            background-color: #fcbcb8;
+          }
+        }
+
+        p {
+          margin-top: 1rem;
+          text-align: center;
+        }
+      }
+    }
+
+    .signUp-container {
+      padding: 2rem;
+      margin-top: 188px;
+      margin-right: 400px;
+
+      width: 320px;
+
+      .signUp-form {
+        display: flex;
+        flex-direction: column;
+
+        p {
+          font-family: latoI;
+          font-size: 12px;
+          margin-right: 115px;
+          word-spacing: 1.5px;
+          letter-spacing: 1px;
+        }
+        h2 {
+          margin-bottom: 1.5rem;
+          text-align: center;
+          font-family: latoReg;
+          font-weight: 100;
+          letter-spacing: 3px;
+          font-size: 30px;
+          margin-right: 100px;
+          position: absolute;
+          margin-top: 35px;
+        }
+
+        input {
+          font-family: latoReg;
+          font-size: 16px; // Adjusted to keep the original size
+          margin-bottom: 1rem;
+          border: none;
+          letter-spacing: 1px;
+          word-spacing: 1px;
+          background-color: $yellow;
+          width: 250px;
+          outline: none;
+          border-bottom: 2px solid black;
+          margin-top: 60px;
+
+          &:focus::placeholder {
+            border-bottom: 2px solid #000;
+            color: black;
+          }
+        }
+
+        button {
+          background-color: $yellow;
+          border: none;
+          border-radius: 50px;
+          width: 209px;
+          height: 52px;
+          box-shadow: -2px 10px 6px rgb(112, 112, 112, 0.3);
+          font-family: cavReg;
+          font-size: 25px;
+          margin-top: 52.5px;
+
+          &:hover {
+            background-color: #fcbcb8;
+          }
+        }
+      }
+    }
+  }
+  .footer {
+    padding-top: 150px;
+  }
+}
