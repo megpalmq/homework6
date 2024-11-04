@@ -1,29 +1,36 @@
-.hero2 {
+.login {
+  margin: 0 auto;
+  position: relative;
+  width: 100vw;
+  min-height: 1000px;
   background-color: #ffd972;
-  min-height: 80vh;
-  width: 100%;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  filter: saturate(1.2);
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  color: gray;
 
   .login-signUp {
     display: flex;
+    margin-top: 150px;
     align-items: center;
     height: 60vh;
-    // gap: 100px;
+
     .login-container {
       padding: 2rem;
       margin-top: 188px;
       margin-left: 276px;
       margin-right: auto;
-
       width: 300px;
 
       .login-form {
         display: flex;
         flex-direction: column;
+
         h2 {
           margin-bottom: 1.5rem;
           text-align: center;
@@ -35,13 +42,12 @@
 
         input {
           font-family: latoReg;
-          font-size: 10px;
+          font-size: 16px;
           margin-bottom: 1rem;
           border: none;
           letter-spacing: 1px;
           word-spacing: 1px;
           background-color: $yellow;
-          font-size: 16px;
           width: 250px;
           outline: none;
           border-bottom: 2px solid black;
@@ -58,7 +64,7 @@
           border-radius: 50px;
           width: 209px;
           height: 52px;
-          box-shadow: -2px 10px 6px rgb(112, 112, 112, 0.3);
+          box-shadow: -2px 10px 6px rgba(112, 112, 112, 0.3);
           font-family: cavReg;
           font-size: 25px;
           margin-top: 52.5px;
@@ -77,9 +83,8 @@
 
     .signUp-container {
       padding: 2rem;
-      margin-top: 188px;
+      margin-top: 168px;
       margin-right: 400px;
-
       width: 320px;
 
       .signUp-form {
@@ -93,6 +98,7 @@
           word-spacing: 1.5px;
           letter-spacing: 1px;
         }
+
         h2 {
           margin-bottom: 1.5rem;
           text-align: center;
@@ -130,7 +136,7 @@
           border-radius: 50px;
           width: 209px;
           height: 52px;
-          box-shadow: -2px 10px 6px rgb(112, 112, 112, 0.3);
+          box-shadow: -2px 10px 6px rgba(112, 112, 112, 0.3);
           font-family: cavReg;
           font-size: 25px;
           margin-top: 52.5px;
@@ -142,67 +148,74 @@
       }
     }
   }
+
   .footer {
     padding-top: 150px;
   }
 }
 
 @media (max-width: 768px) {
-  .hero2 {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-
+  .login {
+    height: 150vh;
     .login-signUp {
-      flex: 1;
       flex-direction: column;
-      align-items: center;
-      padding: 20px;
-      justify-content: center;
+      margin-top: 150px;
 
       .login-container,
       .signUp-container {
-        width: 90%;
-        max-width: 300px;
-        margin: 20px auto;
-        padding: 1rem;
+        margin: 0 auto;
+        width: 80%;
+        padding: 10px;
+        box-shadow: none;
+      }
 
+      .login-form,
+      .signUp-form {
         h2 {
-          margin-bottom: 1rem;
-          font-size: 24px;
+          font-size: 1.5rem;
+          margin-bottom: 5px;
         }
 
         input {
           width: 100%;
-          margin-top: 30px;
+          font-size: 14px;
+          height: auto;
         }
 
         button {
+          font-size: 1rem;
           width: 100%;
-          margin-top: 30px;
-        }
-      }
-
-      .signUp-container {
-        .signUp-form {
-          p {
-            margin-right: 0;
-            text-align: center;
-          }
-
-          h2 {
-            position: static;
-            margin-right: 0;
-            margin-top: 10px;
-          }
+          height: auto;
         }
       }
     }
+  }
+}
 
-    .footer {
-      margin-top: auto;
-      padding-top: 20px;
-      padding-bottom: 20px;
+@media (max-width: 380px) {
+  .login {
+    .login-signUp {
+      margin-top: 50px;
+
+      .login-container,
+      .signUp-container {
+        width: 90%;
+      }
+
+      .login-form,
+      .signUp-form {
+        h2 {
+          font-size: 20px;
+        }
+
+        input {
+          font-size: 12px;
+        }
+
+        button {
+          font-size: 18px;
+        }
+      }
     }
   }
 }

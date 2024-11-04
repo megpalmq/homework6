@@ -2,42 +2,42 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
 html,
 body {
-  height: 100%;
   overflow-x: hidden;
+  height: 100%;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin-bottom: 16px;
+
+.main {
+  position: relative;
+  width: 100vw;
+  height: auto;
+  min-height: 100vh;
+  background-image: url("../assests/images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f25c54;
+  opacity: 0.6;
+  z-index: 1;
 }
 
 header {
-  background-color: rgb(235, 192, 255);
-  color: white;
-  padding: 0.5rem 0;
-}
-body {
-  display: flex;
-  align-items: stretch;
-  flex-shrink: none;
-  flex-direction: column;
-  nav,
-  footer,
-  #app {
-    flex-shrink: 0;
-  }
-  //idk why its making me do this but oh well
-}
-#app {
-  flex-grow: 1;
-  // overflow-x: hidden;
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  padding: 1rem 0;
+  font-size: 1.5rem;
 }
 
 @font-face {

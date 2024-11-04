@@ -1,38 +1,39 @@
-import { changeRoute } from "../model/model.js";
+import { changePage } from "../model/model.js";
 
-const hamburgerMenu = $("#hamburger");
-const nav = $(".nav");
+const hamburgerMenu = document.querySelector(".hamburgerMenu");
+const nav = document.querySelector(".nav");
 
-hamburgerMenu.on("click", function() { 
-    nav.toggleClass("active"); 
-    console.log("click"); 
+function route() {
+  let hashTag = window.location.hash || "#";
+  let pageID = hashTag.replace("#", "");
+  
+
+  changePage(pageID);
+}
+function initSite() {
+  $(window).on("hashchange", route);
+  route();
+}
+
+hamburgerMenu.addEventListener("click", () => {
+    console.log('clicky')
+  nav.classList.toggle("active");
 });
 
 function initListeners() {
-    $("nav a").on("click", function(e) {
-        e.preventDefault(); 
-        let id = e.currentTarget.id;
-        changeRoute(id); 
-        nav.removeClass("active"); 
-    });
+  $(document).on("click", "a", function (e) {
+    let id = e.currentTarget.id;
+    console.log(id);
+    window.location.hash = id;
+    nav.classList.toggle("active");
+  });
 
-    // Single hamburger menu handler
-    hamburgerMenu.on("click", function() { 
-        nav.toggleClass("active"); 
-    });
+  $(".nav").on("click", function () {
+    nav.classList.toggle("active");
+  });
 }
 
-function initURLListener() {
-    $(window).on("hashchange", function(e) {
-        let pageID = window.location.hash.replace("#", "");
-        changeRoute(pageID);
-    });
-}
-
-$(document).ready(function() {
-    $(document).ready(function() {
-        initListeners();
-        initURLListener();
-        changeRoute('home'); 
-    });
+$(document).ready(function () {
+  initSite();
+  initListeners();
 });

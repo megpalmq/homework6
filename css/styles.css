@@ -2,44 +2,42 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 html,
 body {
-  height: 100%;
   overflow-x: hidden;
+  height: 100%;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin-bottom: 16px;
+.main {
+  position: relative;
+  width: 100vw;
+  height: auto;
+  min-height: 100vh;
+  background-image: url("../assests/images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f25c54;
+  opacity: 0.6;
+  z-index: 1;
 }
 
 header {
-  background-color: rgb(235, 192, 255);
-  color: white;
-  padding: 0.5rem 0;
-}
-
-body {
-  display: flex;
-  align-items: stretch;
-  flex-shrink: none;
-  flex-direction: column;
-}
-body nav,
-body footer,
-body #app {
-  flex-shrink: 0;
-}
-
-#app {
-  flex-grow: 1;
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  padding: 1rem 0;
+  font-size: 1.5rem;
 }
 
 @font-face {
@@ -68,8 +66,7 @@ body #app {
   position: relative;
   z-index: 2;
 }
-
-.logo {
+.nav-container .logo {
   background-image: url(../assests/images/logo.svg);
   background-position: center;
   background-repeat: no-repeat;
@@ -77,238 +74,223 @@ body #app {
   width: 169px;
   height: 55px;
 }
-
-.nav {
-  display: flex;
-  align-items: center;
-}
-
-.nav--ul__one {
-  display: flex;
-  gap: 1.6rem;
-  margin-right: 20px;
-}
-
-.nav--ul__two {
-  display: flex;
-  gap: 1.6rem;
-}
-
-ul {
-  list-style: none;
-}
-
-nav a {
-  font-family: cavReg;
-  font-size: 25px;
-  padding: 41px;
-  position: relative;
-  text-decoration: none;
-  color: inherit;
-}
-nav a.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
+.nav-container .logo img {
   width: 100%;
-  height: 2px;
-  background-color: #000;
-  color: black;
+  height: auto;
 }
-nav a:hover {
-  font-size: 30px;
-  transition: 0.25s ease-in;
-}
-
-.hamburger-menu {
+.nav-container .hamburgerMenu {
   display: none;
   cursor: pointer;
   z-index: 1001;
 }
-
-.loginBtn {
-  background-color: #ffd972;
-  border: none;
-  border-radius: 50px;
+.nav-container .nav {
+  display: flex;
+  align-items: center;
+}
+.nav-container .nav--ul__one {
+  display: flex;
+  gap: 1.6rem;
+  margin-right: 20px;
+}
+.nav-container .nav--ul__two {
+  display: flex;
+  gap: 1.6rem;
+}
+.nav-container .nav ul {
+  list-style: none;
+}
+.nav-container .nav a {
+  font-family: cavReg;
+  font-size: 25px;
+  padding: 5px;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  padding-right: 50px;
+}
+.nav-container .nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  width: 60%;
+  height: 2px;
+  background-color: #000;
+}
+.nav-container .nav a:hover {
+  font-size: 30px;
+  transition: 0.25s ease-in;
+}
+.nav-container #loginBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 158px;
   height: 52px;
+  background-color: #ffd972;
+  color: black;
+  padding-left: 50px;
+  border-radius: 50px;
   box-shadow: -2px 10px 6px rgba(112, 112, 112, 0.3);
+  transition: transform 0.2s ease-in-out;
 }
-.loginBtn:hover {
-  background-color: #fcbcb8;
+.nav-container #loginBtn:hover {
+  transform: scale(1.05);
+}
+.nav-container #signup {
+  display: none;
 }
 
 @media (max-width: 768px) {
-  .hero1 .nav-container,
-  .hero2 .nav-container {
-    flex-wrap: wrap;
-  }
-  .hero1 .logo,
-  .hero2 .logo {
-    font-size: 1.2rem;
-    z-index: 2;
-  }
-  .hero1 .nav,
-  .hero2 .nav {
-    flex-direction: column;
-    gap: 2rem;
-    position: fixed;
-    top: 0;
-    right: -100%;
-    bottom: 0;
-    width: 100%;
-    height: 100vh;
-    padding-top: 6rem;
+  .nav-container {
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.95);
-    transition: 0.3s ease-in-out;
-    z-index: 1000;
-  }
-  .hero1 .nav.active,
-  .hero2 .nav.active {
-    right: 0;
-    display: none;
-  }
-  .hero1 .nav--ul__one,
-  .hero1 .nav--ul__two,
-  .hero2 .nav--ul__one,
-  .hero2 .nav--ul__two {
-    flex-direction: column;
-    gap: 0.6rem;
-    align-items: center;
-  }
-  .hero1 .hamburger-menu,
-  .hero2 .hamburger-menu {
-    display: block;
-  }
-  .hero1 nav a,
-  .hero2 nav a {
     padding: 10px;
   }
-  .hero1 .loginBtn,
-  .hero2 .loginBtn {
-    margin-top: 20px;
+  .nav-container .logo {
+    margin-bottom: 0;
+  }
+  .nav-container .nav {
+    display: none;
+  }
+  .nav-container .nav.active {
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.3s;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    animation: swipeIn 0.5s forwards;
+  }
+  .nav-container .nav.active ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .nav-container .nav.active ul a {
+    margin: 10px 0;
+    text-decoration: none;
+  }
+  .nav-container .hamburgerMenu {
+    display: block;
+    margin-left: auto;
+    cursor: pointer;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes swipeIn {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
   }
 }
 .footer {
-  width: 100%;
+  position: absolute;
   bottom: 0;
-  padding-top: 100px;
-}
-.footer .footer-container {
+  width: 100%;
+  z-index: 3;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
-  width: 90%;
-  margin: 0 auto;
-  padding: 80px 0;
-}
-.footer .footer-copyright {
-  font-family: "LatoI", sans-serif;
-  color: #393939;
-  text-align: center;
-}
-.footer .footer-links {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-.footer .footer-links ul {
-  display: flex;
-  gap: 1.6rem;
-  list-style: none;
-  justify-content: center;
-}
-.footer .footer-links a {
-  color: #393939;
-  font-family: "LatoI", sans-serif;
+  padding: 1rem;
   font-size: 15px;
-  text-decoration: none;
-}
-.footer .footer-links a:hover {
-  font-size: 18px;
-  transition: font-size 0.25s ease-in;
-}
-.footer .footer-social {
-  display: flex;
-  gap: 1rem;
-}
-.footer .footer-social .social-icon {
-  font-size: 19px;
-  margin-left: 41px;
+  font-style: italic;
+  font-family: latoI;
   color: #393939;
 }
-@media (max-width: 768px) {
-  .footer * {
-    font-size: 10px;
-  }
-  .footer .footer-links {
-    margin-left: 10px;
-  }
-  .footer .footer-links ul {
-    width: 400px;
-  }
-  .footer .footer-links ul a {
-    font-size: 10px;
-  }
-  .footer .footer-links ul a:hover {
-    font-size: 11px;
-    transition: font-size 0.25s ease-in;
-    text-decoration: none;
-  }
-  .footer .footer-social {
-    gap: 1rem;
-  }
-  .footer .footer-social .social-icon {
-    font-size: 19px;
-    margin-left: 0px;
-    color: #393939;
-  }
+.footer .copyright {
+  margin: 0;
 }
-@media (max-width: 428px) {
-  .footer * {
-    font-size: 9px;
-  }
-  .footer .footer-container {
-    flex-wrap: wrap;
-    padding: 40px 0;
-  }
-  .footer .footer-copyright {
-    order: 1;
-    flex-basis: 50%;
-    text-align: left;
-  }
-  .footer .footer-social {
-    order: 2;
-    flex-basis: 50%;
-    justify-content: flex-end;
-  }
-  .footer .footer-social .social-icon {
-    font-size: 16px;
-    margin-left: 10px;
-  }
-  .footer .footer-links {
-    order: 3;
-    flex-basis: 100%;
-    margin-top: 20px;
-  }
-  .footer .footer-links ul {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-    gap: 10px;
-  }
-  .footer .footer-links a {
-    font-size: 12px;
-    padding: 5px 0;
-  }
-  .footer .footer-links a:hover {
-    font-size: 13px;
-  }
+.footer .footer-nav {
+  text-align: center;
+  flex-grow: 1;
+}
+.footer .footer-nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+  gap: 1.5em;
+}
+.footer .footer-nav a:hover {
+  text-decoration: underline;
+}
+.footer .icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+.footer .icons a {
+  margin-left: 20px;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  gap: 15px;
+  background-repeat: no-repeat;
+}
+.footer .icons .footer-icon1 {
+  background-image: url("../assests/images/facebook.svg");
+}
+.footer .icons .footer-icon2 {
+  background-image: url("../assests/images/instagram.svg");
 }
 
+@media (max-width: 768px) {
+  .footer {
+    font-size: 10px;
+  }
+  .footer .footer-nav {
+    font-size: 10px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+  }
+  .footer .footer-nav a {
+    font-size: 10px;
+  }
+  .footer .icons {
+    font-size: 10px;
+  }
+}
+@media (max-width: 380px) {
+  .footer {
+    font-size: 8px;
+    flex-direction: column;
+  }
+  .footer .footer-nav {
+    font-size: 8px;
+    gap: 0.25rem;
+  }
+  .footer .footer-nav a {
+    font-size: 8px;
+  }
+  .footer .icons {
+    gap: 0.5rem;
+  }
+  .footer .icons .footer-icon1,
+  .footer .icons .footer-icon2 {
+    width: 18px;
+    height: 18px;
+  }
+  .footer p {
+    font-size: 8px;
+  }
+}
 .hero {
   min-height: 100vh;
   width: 100%;
@@ -325,29 +307,22 @@ nav a:hover {
   background-color: #ffd972;
 }
 
-.hero1 {
-  background: linear-gradient(rgba(242, 92, 84, 0.6), rgba(242, 92, 84, 0.6)), url(../assests/images/hero.jpg);
-  min-height: 100vh;
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: saturate(1.2);
+.container {
   position: relative;
-}
-
-.home {
+  z-index: 2;
+  padding: 80px;
   display: flex;
-  justify-content: center;
+  height: calc(100% - 100px);
   align-items: center;
-  padding-top: 100px;
+  justify-content: center;
 }
-.home .circle-container {
+.container .circle-container {
   width: 357px;
   height: 357px;
   position: relative;
+  z-index: 2;
 }
-.home .small-circle {
+.container .circle-container .small-circle {
   width: 168px;
   height: 168px;
   background-color: rgb(252, 188, 184);
@@ -363,14 +338,14 @@ nav a:hover {
   padding: 10px;
   box-shadow: -2px 10px 6px rgba(0, 0, 0, 0.16);
 }
-.home .small-circle p {
+.container .circle-container .small-circle p {
   font-family: latoI;
   color: #707070;
   width: 96.76px;
   font-size: 10px;
   text-align: center;
 }
-.home .yellow-circle {
+.container .circle-container .yellow-circle {
   width: 357px;
   height: 357px;
   background-color: #ffd972;
@@ -384,47 +359,112 @@ nav a:hover {
   box-shadow: -2px 10px 6px rgba(0, 0, 0, 0.16);
   flex-direction: column;
 }
-.home .yellow-circle h3 {
+.container .circle-container .yellow-circle h2 {
   font-family: cavReg;
   font-size: 24px;
   letter-spacing: 3px;
 }
-.home .yellow-circle p {
+.container .circle-container .yellow-circle p {
   font-family: latoReg;
   font-size: 13px;
   width: 166px;
-  margin-top: 5px;
-  line-height: 18px;
-  word-spacing: 1px;
+  margin-top: 30px;
 }
 
-.hero2 {
+@media (max-width: 768px) {
+  .container {
+    justify-content: center;
+  }
+  .container .circle-container {
+    width: 250px;
+    height: 250px;
+  }
+  .container .circle-container .small-circle {
+    width: 167px;
+    height: 167px;
+    right: -100px;
+    top: -100px;
+  }
+  .container .circle-container .small-circle p {
+    font-size: 10px;
+  }
+  .container .circle-container .yellow-circle {
+    width: 357px;
+    height: 357px;
+  }
+  .container .circle-container .yellow-circle h2 {
+    font-size: 20px;
+  }
+  .container .circle-container .yellow-circle p {
+    font-size: 13px;
+    width: 162px;
+  }
+}
+@media (max-width: 380px) {
+  .container {
+    justify-content: center;
+    margin-top: 100px;
+  }
+  .container .circle-container {
+    width: 250px;
+    height: 250px;
+  }
+  .container .circle-container .small-circle {
+    width: 121px;
+    height: 121px;
+    right: -30px;
+    top: -70px;
+  }
+  .container .circle-container .small-circle p {
+    width: 121px;
+    font-size: 8px;
+  }
+  .container .circle-container .yellow-circle {
+    width: 257px;
+    height: 257px;
+  }
+  .container .circle-container .yellow-circle h2 {
+    font-size: 17px;
+  }
+  .container .circle-container .yellow-circle p {
+    font-size: 9px;
+    width: 112px;
+  }
+}
+.login {
+  margin: 0 auto;
+  position: relative;
+  width: 100vw;
+  min-height: 1000px;
   background-color: #ffd972;
-  min-height: 80vh;
-  width: 100%;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  filter: saturate(1.2);
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  color: gray;
 }
-.hero2 .login-signUp {
+.login .login-signUp {
   display: flex;
+  margin-top: 150px;
   align-items: center;
   height: 60vh;
 }
-.hero2 .login-signUp .login-container {
+.login .login-signUp .login-container {
   padding: 2rem;
   margin-top: 188px;
   margin-left: 276px;
   margin-right: auto;
   width: 300px;
 }
-.hero2 .login-signUp .login-container .login-form {
+.login .login-signUp .login-container .login-form {
   display: flex;
   flex-direction: column;
 }
-.hero2 .login-signUp .login-container .login-form h2 {
+.login .login-signUp .login-container .login-form h2 {
   margin-bottom: 1.5rem;
   text-align: center;
   font-family: latoReg;
@@ -432,24 +472,23 @@ nav a:hover {
   letter-spacing: 3px;
   font-size: 30px;
 }
-.hero2 .login-signUp .login-container .login-form input {
+.login .login-signUp .login-container .login-form input {
   font-family: latoReg;
-  font-size: 10px;
+  font-size: 16px;
   margin-bottom: 1rem;
   border: none;
   letter-spacing: 1px;
   word-spacing: 1px;
   background-color: #ffd972;
-  font-size: 16px;
   width: 250px;
   outline: none;
   border-bottom: 2px solid black;
   margin-top: 60px;
 }
-.hero2 .login-signUp .login-container .login-form input:focus {
+.login .login-signUp .login-container .login-form input:focus {
   border-bottom: 2px solid #000;
 }
-.hero2 .login-signUp .login-container .login-form button {
+.login .login-signUp .login-container .login-form button {
   background-color: #ffd972;
   border: none;
   border-radius: 50px;
@@ -460,31 +499,31 @@ nav a:hover {
   font-size: 25px;
   margin-top: 52.5px;
 }
-.hero2 .login-signUp .login-container .login-form button:hover {
+.login .login-signUp .login-container .login-form button:hover {
   background-color: #fcbcb8;
 }
-.hero2 .login-signUp .login-container .login-form p {
+.login .login-signUp .login-container .login-form p {
   margin-top: 1rem;
   text-align: center;
 }
-.hero2 .login-signUp .signUp-container {
+.login .login-signUp .signUp-container {
   padding: 2rem;
-  margin-top: 188px;
+  margin-top: 168px;
   margin-right: 400px;
   width: 320px;
 }
-.hero2 .login-signUp .signUp-container .signUp-form {
+.login .login-signUp .signUp-container .signUp-form {
   display: flex;
   flex-direction: column;
 }
-.hero2 .login-signUp .signUp-container .signUp-form p {
+.login .login-signUp .signUp-container .signUp-form p {
   font-family: latoI;
   font-size: 12px;
   margin-right: 115px;
   word-spacing: 1.5px;
   letter-spacing: 1px;
 }
-.hero2 .login-signUp .signUp-container .signUp-form h2 {
+.login .login-signUp .signUp-container .signUp-form h2 {
   margin-bottom: 1.5rem;
   text-align: center;
   font-family: latoReg;
@@ -495,7 +534,7 @@ nav a:hover {
   position: absolute;
   margin-top: 35px;
 }
-.hero2 .login-signUp .signUp-container .signUp-form input {
+.login .login-signUp .signUp-container .signUp-form input {
   font-family: latoReg;
   font-size: 16px;
   margin-bottom: 1rem;
@@ -508,11 +547,11 @@ nav a:hover {
   border-bottom: 2px solid black;
   margin-top: 60px;
 }
-.hero2 .login-signUp .signUp-container .signUp-form input:focus::placeholder {
+.login .login-signUp .signUp-container .signUp-form input:focus::placeholder {
   border-bottom: 2px solid #000;
   color: black;
 }
-.hero2 .login-signUp .signUp-container .signUp-form button {
+.login .login-signUp .signUp-container .signUp-form button {
   background-color: #ffd972;
   border: none;
   border-radius: 50px;
@@ -523,60 +562,64 @@ nav a:hover {
   font-size: 25px;
   margin-top: 52.5px;
 }
-.hero2 .login-signUp .signUp-container .signUp-form button:hover {
+.login .login-signUp .signUp-container .signUp-form button:hover {
   background-color: #fcbcb8;
 }
-.hero2 .footer {
+.login .footer {
   padding-top: 150px;
 }
 
 @media (max-width: 768px) {
-  .hero2 {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  .login {
+    height: 150vh;
   }
-  .hero2 .login-signUp {
-    flex: 1;
+  .login .login-signUp {
     flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    justify-content: center;
+    margin-top: 150px;
   }
-  .hero2 .login-signUp .login-container,
-  .hero2 .login-signUp .signUp-container {
+  .login .login-signUp .login-container,
+  .login .login-signUp .signUp-container {
+    margin: 0 auto;
+    width: 80%;
+    padding: 10px;
+    box-shadow: none;
+  }
+  .login .login-signUp .login-form h2,
+  .login .login-signUp .signUp-form h2 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+  }
+  .login .login-signUp .login-form input,
+  .login .login-signUp .signUp-form input {
+    width: 100%;
+    font-size: 14px;
+    height: auto;
+  }
+  .login .login-signUp .login-form button,
+  .login .login-signUp .signUp-form button {
+    font-size: 1rem;
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-width: 380px) {
+  .login .login-signUp {
+    margin-top: 50px;
+  }
+  .login .login-signUp .login-container,
+  .login .login-signUp .signUp-container {
     width: 90%;
-    max-width: 300px;
-    margin: 20px auto;
-    padding: 1rem;
   }
-  .hero2 .login-signUp .login-container h2,
-  .hero2 .login-signUp .signUp-container h2 {
-    margin-bottom: 1rem;
-    font-size: 24px;
+  .login .login-signUp .login-form h2,
+  .login .login-signUp .signUp-form h2 {
+    font-size: 20px;
   }
-  .hero2 .login-signUp .login-container input,
-  .hero2 .login-signUp .signUp-container input {
-    width: 100%;
-    margin-top: 30px;
+  .login .login-signUp .login-form input,
+  .login .login-signUp .signUp-form input {
+    font-size: 12px;
   }
-  .hero2 .login-signUp .login-container button,
-  .hero2 .login-signUp .signUp-container button {
-    width: 100%;
-    margin-top: 30px;
-  }
-  .hero2 .login-signUp .signUp-container .signUp-form p {
-    margin-right: 0;
-    text-align: center;
-  }
-  .hero2 .login-signUp .signUp-container .signUp-form h2 {
-    position: static;
-    margin-right: 0;
-    margin-top: 10px;
-  }
-  .hero2 .footer {
-    margin-top: auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
+  .login .login-signUp .login-form button,
+  .login .login-signUp .signUp-form button {
+    font-size: 18px;
   }
 }
