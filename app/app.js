@@ -1,19 +1,18 @@
 import { changeRoute } from "../model/model.js";
 
 const hamburgerMenu = $("#hamburger");
-
 const nav = $(".nav");
 
 hamburgerMenu.on("click", function() { 
     nav.toggleClass("active"); 
-    console.log("click"); // Corrected spelling
+    console.log("click"); 
 });
 
 function initListeners() {
     $("nav a").on("click", function(e) {
-        e.preventDefault(); // Prevent default hash behavior
+        e.preventDefault(); 
         let id = e.currentTarget.id;
-        changeRoute(id); // Use changeRoute instead of directly setting HTML
+        changeRoute(id); 
         nav.removeClass("active"); 
     });
 

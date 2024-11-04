@@ -6,6 +6,7 @@
 html,
 body {
   height: 100%;
+  overflow-x: hidden;
 }
 h1,
 h2,
@@ -36,7 +37,7 @@ body {
 }
 #app {
   flex-grow: 1;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 
 @font-face {
