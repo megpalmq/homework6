@@ -33,6 +33,6 @@ $(document).ready(function() {
     $(document).ready(function() {
         initListeners();
         initURLListener();
-        changeRoute('login'); 
+        changeRoute('home'); 
     });
 });
