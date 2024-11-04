@@ -140,14 +140,17 @@ nav a:hover {
 }
 
 @media (max-width: 768px) {
-  .nav-container {
+  .hero1 .nav-container,
+  .hero2 .nav-container {
     flex-wrap: wrap;
   }
-  .logo {
+  .hero1 .logo,
+  .hero2 .logo {
     font-size: 1.2rem;
     z-index: 2;
   }
-  .nav {
+  .hero1 .nav,
+  .hero2 .nav {
     flex-direction: column;
     gap: 2rem;
     position: fixed;
@@ -163,23 +166,29 @@ nav a:hover {
     transition: 0.3s ease-in-out;
     z-index: 1000;
   }
-  .nav.active {
+  .hero1 .nav.active,
+  .hero2 .nav.active {
     right: 0;
     display: none;
   }
-  .nav--ul__one,
-  .nav--ul__two {
+  .hero1 .nav--ul__one,
+  .hero1 .nav--ul__two,
+  .hero2 .nav--ul__one,
+  .hero2 .nav--ul__two {
     flex-direction: column;
     gap: 0.6rem;
     align-items: center;
   }
-  .hamburger-menu {
+  .hero1 .hamburger-menu,
+  .hero2 .hamburger-menu {
     display: block;
   }
-  nav a {
+  .hero1 nav a,
+  .hero2 nav a {
     padding: 10px;
   }
-  .loginBtn {
+  .hero1 .loginBtn,
+  .hero2 .loginBtn {
     margin-top: 20px;
   }
 }
