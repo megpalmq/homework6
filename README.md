@@ -7,4 +7,4 @@ You must have the mobile menu working as well as the normal menu.
 Upload this to the web 4 server and Github and submit the Github link to this project.
 
 web4 link :
-https://in-info-web4.luddy.indianapolis.iu.edu/~megpalmq/homework6/#home
+https://in-info-web4.luddy.indianapolis.iu.edu/~megpalmq/homework6/
