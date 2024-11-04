@@ -32,9 +32,11 @@ body {
   #app {
     flex-shrink: 0;
   }
+  //idk why its making me do this but oh well
 }
 #app {
-  flex: 1;
+  flex-grow: 1;
+  overflow-x: hidden;
 }
 
 @font-face {

@@ -1,10 +1,25 @@
 import { changeRoute } from "../model/model.js";
 
+const hamburgerMenu = $("#hamburger");
+
+const nav = $(".nav");
+
+hamburgerMenu.on("click", function() { 
+    nav.toggleClass("active"); 
+    console.log("click"); // Corrected spelling
+});
+
 function initListeners() {
-    $(document).on("click", "nav a", function(e) {
-        e.preventDefault();
-        let btnID = e.currentTarget.id;
-        changeRoute(btnID);
+    $("nav a").on("click", function(e) {
+        e.preventDefault(); // Prevent default hash behavior
+        let id = e.currentTarget.id;
+        changeRoute(id); // Use changeRoute instead of directly setting HTML
+        nav.removeClass("active"); 
+    });
+
+    // Single hamburger menu handler
+    hamburgerMenu.on("click", function() { 
+        nav.toggleClass("active"); 
     });
 }
 
@@ -16,8 +31,9 @@ function initURLListener() {
 }
 
 $(document).ready(function() {
-    initListeners();
-    initURLListener();
-
-    changeRoute('login');
+    $(document).ready(function() {
+        initListeners();
+        initURLListener();
+        changeRoute('login'); 
+    });
 });

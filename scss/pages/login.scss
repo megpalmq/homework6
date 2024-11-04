@@ -107,7 +107,7 @@
 
         input {
           font-family: latoReg;
-          font-size: 16px; // Adjusted to keep the original size
+          font-size: 16px;
           margin-bottom: 1rem;
           border: none;
           letter-spacing: 1px;
@@ -144,5 +144,65 @@
   }
   .footer {
     padding-top: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero2 {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .login-signUp {
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      justify-content: center;
+
+      .login-container,
+      .signUp-container {
+        width: 90%;
+        max-width: 300px;
+        margin: 20px auto;
+        padding: 1rem;
+
+        h2 {
+          margin-bottom: 1rem;
+          font-size: 24px;
+        }
+
+        input {
+          width: 100%;
+          margin-top: 30px;
+        }
+
+        button {
+          width: 100%;
+          margin-top: 30px;
+        }
+      }
+
+      .signUp-container {
+        .signUp-form {
+          p {
+            margin-right: 0;
+            text-align: center;
+          }
+
+          h2 {
+            position: static;
+            margin-right: 0;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+
+    .footer {
+      margin-top: auto;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
   }
 }
